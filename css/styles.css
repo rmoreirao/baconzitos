@@ -5,6 +5,9 @@
     --text-color: #333333;
     --success-color: #4CAF50;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --accent-color: #FF1493;
+    --hover-color: #FF69B4;
+    --card-background: #FFFFFF;
 }
 
 * {
@@ -279,4 +282,51 @@ footer .material-icons {
     font-weight: bold;
     text-align: center;
     border: 2px solid #FFCDD2;
+}
+
+.store-locator {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px dashed var(--accent-color);
+}
+
+.store-locator h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.store-results {
+    padding: 1rem;
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.store-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 0.8rem;
+    background: white;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.store-link:hover {
+    background: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.loading-text {
+    color: var(--text-color);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.hidden {
+    display: none;
 }

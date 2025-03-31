@@ -102,14 +102,53 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const weightInput = document.getElementById('baconWeight');
-        const weight = parseFloat(weightInput.value);
+    function findNearbyStores() {
+        const storeLocator = document.getElementById('storeLocator');
+        const storeResults = document.getElementById('storeResults');
+        
+        storeLocator.classList.remove('hidden');
 
-        if (validateInput(weight)) {
-            const results = calculateBrine(weight);
-            displayResults(results);
+        if (!navigator.geolocation) {
+            storeResults.innerHTML = '<p>😕 Geolocation is not supported by your browser</p>';
+            return;
         }
+
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                const mapsUrl = `https://www.google.com/maps/search/butcher+shop+bacon/@${latitude},${longitude},13z`;
+                
+                storeResults.innerHTML = `
+                    <p>🎉 We found some places where you can buy bacon near you!</p>
+                    <a href="${mapsUrl}" target="_blank" class="store-link">
+                        <span class="material-icons">store</span>
+                        View Nearby Butcher Shops
+                    </a>
+                `;
+            },
+            (error) => {
+                storeResults.innerHTML = `<p>😅 Oops! Couldn't find your location: ${error.message}</p>`;
+            }
+        );
+    }
+
+    // Modify the form submit handler to include store finder
+    document.getElementById('brineCalculator').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const baconWeight = parseFloat(document.getElementById('baconWeight').value);
+        
+        if (!validateInput(baconWeight)) {
+            return;
+        }
+        
+        // Calculate brine ingredients
+        const results = calculateBrine(baconWeight);
+        
+        // Display the results with animation
+        displayResults(results);
+        
+        // After results are shown, find nearby stores
+        findNearbyStores();
     });
 });

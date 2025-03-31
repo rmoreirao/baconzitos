@@ -1,0 +1,1 @@
+After clicking the calculate button - propose a place to buy the bacon based on the code of the chat above.

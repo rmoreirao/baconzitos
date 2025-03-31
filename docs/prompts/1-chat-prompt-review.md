@@ -1,0 +1,1 @@
+I am creating a funny website to calculate the ingredients for the brine when preparing Bacon. These is my prompt to generate the website - it must be fun and full of animations. Validate the prompt and propose improvements.

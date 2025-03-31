@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Bacon Brine Calculator 🐷</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo" role="banner">
+                <h1>Funny Pig Bacon Calculator</h1>
+                <img src="bacon-recipe-calculator.png" alt="Funny Pig Logo" class="logo-image">
+            </div>
+        </header>
+
+        <main>
+            <div class="calculator-card">
+                <form id="brineCalculator" aria-label="Brine calculator form">
+                    <div class="input-group">
+                        <label for="baconWeight">How much bacon are you curing? 🥓</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="baconWeight" 
+                                name="baconWeight" 
+                                min="0.1" 
+                                step="0.1" 
+                                required 
+                                aria-required="true"
+                                placeholder="Enter weight in KG">
+                            <span class="unit">KG</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="calculate-btn" aria-label="Calculate brine ingredients">
+                        <span class="material-icons">calculate</span>
+                        Calculate
+                    </button>
+                </form>
+
+                <div id="results" class="results hidden" aria-live="polite">
+                    <h2>Your Magical Brine Recipe 🧪</h2>
+                    <div class="results-table">
+                        <div class="result-row">
+                            <span class="material-icons">water_drop</span>
+                            <span class="ingredient">Water</span>
+                            <span class="amount" id="waterAmount">0</span>
+                            <span class="unit">ml</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="material-icons">cake</span>
+                            <span class="ingredient">Sugar</span>
+                            <span class="amount" id="sugarAmount">0</span>
+                            <span class="unit">g</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="material-icons">grain</span>
+                            <span class="ingredient">Salt</span>
+                            <span class="amount" id="saltAmount">0</span>
+                            <span class="unit">g</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="material-icons">science</span>
+                            <span class="ingredient">Nitrate</span>
+                            <span class="amount" id="nitrateAmount">0</span>
+                            <span class="unit">g</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="material-icons">local_fire_department</span>
+                            <span class="ingredient">Black Pepper</span>
+                            <span class="amount" id="pepperAmount">0</span>
+                            <span class="unit">g</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with <span class="material-icons">favorite</span> for bacon lovers</p>
+        </footer>
+    </div>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
